@@ -60,6 +60,12 @@ do-build:
 		CXXFLAGS="${CXXFLAGS} -I${LOCALBASE}/include" \
 		node ${LOCALBASE}/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js \
 		rebuild --nodedir=${LOCALBASE}
+	cd ${WRKSRC}/lib/vscode/node_modules/@vscode/sqlite3 && \
+		${SETENV} ${MAKE_ENV} PYTHON=${PYTHON_CMD} \
+		CXXFLAGS="${CXXFLAGS} -I${LOCALBASE}/include" \
+		CPPFLAGS="${CPPFLAGS} -I${LOCALBASE}/include" \
+		node ${LOCALBASE}/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js \
+		rebuild --nodedir=${LOCALBASE}
 	cd ${WRKSRC}/lib/vscode && \
 		VSCODE_NODE_VERSION=$$(${AWK} \
 			'/node-v[0-9.]+-linux-x64\.tar\.gz/ { \
@@ -104,6 +110,9 @@ do-build:
 	${MKDIR} ${WRKSRC}/lib/vscode-reh-web-linux-x64/node_modules/@vscode/native-watchdog/build/Release
 	${CP} ${WRKSRC}/lib/vscode/node_modules/@vscode/native-watchdog/build/Release/watchdog.node \
 		${WRKSRC}/lib/vscode-reh-web-linux-x64/node_modules/@vscode/native-watchdog/build/Release/watchdog.node
+	${MKDIR} ${WRKSRC}/lib/vscode-reh-web-linux-x64/node_modules/@vscode/sqlite3/build/Release
+	${CP} ${WRKSRC}/lib/vscode/node_modules/@vscode/sqlite3/build/Release/vscode-sqlite3.node \
+		${WRKSRC}/lib/vscode-reh-web-linux-x64/node_modules/@vscode/sqlite3/build/Release/vscode-sqlite3.node
 	${RM} ${WRKSRC}/lib/vscode-reh-web-linux-x64/node
 
 make-node-modules-archive:

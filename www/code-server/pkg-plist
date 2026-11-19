@@ -3504,6 +3504,7 @@
 %%DATADIR%%/lib/vscode/node_modules/@vscode/spdlog/package.json
 %%DATADIR%%/lib/vscode/node_modules/@vscode/spdlog/SECURITY.md
 %%DATADIR%%/lib/vscode/node_modules/@vscode/spdlog/tsconfig.json
+%%DATADIR%%/lib/vscode/node_modules/@vscode/sqlite3/build/Release/vscode-sqlite3.node
 %%DATADIR%%/lib/vscode/node_modules/@vscode/sqlite3/lib/sqlite3-binding.js
 %%DATADIR%%/lib/vscode/node_modules/@vscode/sqlite3/lib/sqlite3.js
 %%DATADIR%%/lib/vscode/node_modules/@vscode/sqlite3/lib/trace.js
